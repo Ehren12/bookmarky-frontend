@@ -1,3 +1,9 @@
-import { Bookmark } from "@prisma/client";
-
-export type BookmarkTypes = Bookmark
+export type BookmarkTypes = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  title: string;
+  description?: string;
+  link: string;
+  userId: string;
+};

@@ -1,14 +1,4 @@
-import {
-  IsEmail,
-  IsOptional,
-  IsString,
-  IsStrongPassword,
-} from 'class-validator';
-export class UserEditDto {
-  @IsString()
-  @IsOptional()
+export interface UserEditDto {
   firstName?: string;
-  @IsString()
-  @IsOptional()
   lastName?: string;
 }

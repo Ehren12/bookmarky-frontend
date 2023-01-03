@@ -8,6 +8,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     const response = await axios.get(
       "https://bookmarky-backend-production.up.railway.app/auth/isAuthenticated",
       {
+        headers: {
+          Origin: "https://bookmarky-frontend.vercel.app",
+        },
         withCredentials: true,
       }
     );

@@ -8,9 +8,7 @@ import BookmarkCard from "../components/generalComponents/bookmarkCard";
 
 const fetchBookmarks = async () => {
   const response = await axios.get("https://bookmarky-backend-production.up.railway.app/bookmarks", {
-    headers: {
-      Origin: "https://bookmarky-frontend.vercel.app/",
-    },
+
     withCredentials: true,
   });
   return response.data;

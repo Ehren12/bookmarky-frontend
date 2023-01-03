@@ -25,9 +25,6 @@ function EditBookmark() {
   const mutation: any = useMutation((newBookmark) => {
     return axios
       .patch(`https://bookmarky-backend-production.up.railway.app/bookmarks/edit/${id}`, newBookmark, {
-        headers: {
-          Origin: "https://bookmarky-frontend.vercel.app/",
-        },
         withCredentials: true,
       })
       .then((res) => {

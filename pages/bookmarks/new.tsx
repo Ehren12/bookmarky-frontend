@@ -25,6 +25,9 @@ const NewBookmark = () => {
   const mutation: any = useMutation((newBookmark) => {
     return axios
       .post("https://bookmarky-backend-production.up.railway.app/bookmarks/create", newBookmark, {
+        headers: {
+          Origin: "https://bookmarky-frontend.vercel.app/",
+        },
         withCredentials: true,
       })
       .then((res) => {

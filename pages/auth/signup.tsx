@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Toaster, toast } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 import {SignupDto} from '../../types/authtypes/'
+import { useRouter } from "next/router";
 
 // interface IFormInput {
 //   email: string;
@@ -16,16 +17,21 @@ import {SignupDto} from '../../types/authtypes/'
 // }
 
 export default function Signup() {
+  const router = useRouter();
   const { register, handleSubmit, watch, formState, reset } =
     useForm<SignupDto>();
 
   const mutation: any = useMutation((newUser) => {
     return axios
       .post("https://bookmarky-backend-production.up.railway.app/auth/signup", newUser, {
+        headers: {
+          Origin: "https://bookmarky-frontend.vercel.app/",
+        },
         withCredentials: true,
       })
       .then((res) => {
         console.log(JSON.stringify(res.data));
+        router.push('/auth/login')
         // sessionStorage.setItem('session_id', JSON.stringify(res.data.sessionId))
       })
       .catch((err) => {

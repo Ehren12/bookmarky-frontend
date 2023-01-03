@@ -24,9 +24,6 @@ export default function Signup() {
   const mutation: any = useMutation((newUser) => {
     return axios
       .post("https://bookmarky-backend-production.up.railway.app/auth/signup", newUser, {
-        headers: {
-          Origin: "https://bookmarky-frontend.vercel.app",
-        },
         withCredentials: true,
       })
       .then((res) => {

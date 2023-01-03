@@ -10,9 +10,6 @@ const SingleBookmark = () => {
   const { id } = router.query;
   const fetchData = async () => {
     const response = await axios.get(`https://bookmarky-backend-production.up.railway.app/bookmarks/${id}`, {
-      headers: {
-        Origin: "https://bookmarky-frontend.vercel.app",
-      },
       withCredentials: true,
     });
     return response.data;

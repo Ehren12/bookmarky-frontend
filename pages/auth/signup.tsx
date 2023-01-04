@@ -7,6 +7,7 @@ import { Toaster, toast } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 import {SignupDto} from '../../types/authtypes/'
 import { useRouter } from "next/router";
+import baseUrl from "../../baseUrl/base";
 
 // interface IFormInput {
 //   email: string;
@@ -23,7 +24,7 @@ export default function Signup() {
 
   const mutation: any = useMutation((newUser) => {
     return axios
-      .post("https://bookmarky-backend-production.up.railway.app/auth/signup", newUser, {
+      .post(`${baseUrl}/auth/signup`, newUser, {
         withCredentials: true,
       })
       .then((res) => {

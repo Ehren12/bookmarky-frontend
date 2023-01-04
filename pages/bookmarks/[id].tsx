@@ -5,11 +5,12 @@ import { Layout } from "../../components/layouts/layout";
 import { ReactElement } from "react";
 import Link from "next/link";
 import { Pencil, Trash } from "phosphor-react";
+import baseUrl from "../../baseUrl/base";
 const SingleBookmark = () => {
   const router = useRouter();
   const { id } = router.query;
   const fetchData = async () => {
-    const response = await axios.get(`https://bookmarky-backend-production.up.railway.app/bookmarks/${id}`, {
+    const response = await axios.get(`${baseUrl}/bookmarks/${id}`, {
       withCredentials: true,
     });
     return response.data;
@@ -17,7 +18,7 @@ const SingleBookmark = () => {
   const { data, isLoading, error, refetch } = useQuery("bookmarkById", fetchData);
   const deleteBookmark = async () => {
     axios
-      .delete(`https://bookmarky-backend-production.up.railway.app/bookmarks/delete/${id}`, {
+      .delete(`${baseUrl}/bookmarks/delete/${id}`, {
         withCredentials: true,
       })
       .then(() => router.push('/'))

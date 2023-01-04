@@ -1,11 +1,12 @@
 import axios from "axios";
 import Link from "next/link";
 import { useQuery } from "react-query";
+import baseUrl from "../../baseUrl/base";
 
 export const Nav = () => {
   const isAuthenticated = async () => {
     const response = await axios.get(
-      "https://bookmarky-backend-production.up.railway.app/auth/isAuthenticated",
+      `${baseUrl}/auth/isAuthenticated`,
       {
         withCredentials: true,
       }
@@ -21,7 +22,7 @@ export const Nav = () => {
 
   const logout = async () => {
     axios
-      .get("https://bookmarky-backend-production.up.railway.app/auth/logout", {
+      .get(`${baseUrl}/auth/logout`, {
         withCredentials: true,
       })
       .then(() => refetch())

@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 import { EditBookmarkDto } from "../../../types/bookmarks/dto";
 import { useRouter } from "next/router";
 import { Layout } from "../../../components/layouts/layout";
+import baseUrl from "../../../baseUrl/base";
 
 // interface IFormInput {
 //   email: string;
@@ -24,7 +25,7 @@ function EditBookmark() {
   const { id } = router.query;
   const mutation: any = useMutation((newBookmark) => {
     return axios
-      .patch(`https://bookmarky-backend-production.up.railway.app/bookmarks/edit/${id}`, newBookmark, {
+      .patch(`${baseUrl}/bookmarks/edit/${id}`, newBookmark, {
         withCredentials: true,
       })
       .then((res) => {
@@ -38,7 +39,7 @@ function EditBookmark() {
   });
 
   const fetchData = async () => {
-    const response = await axios.get(`https://bookmarky-backend-production.up.railway.app/bookmarks/${id}`, {
+    const response = await axios.get(`${baseUrl}/bookmarks/${id}`, {
       withCredentials: true,
     });
     return response.data;

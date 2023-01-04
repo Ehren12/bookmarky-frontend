@@ -2,11 +2,12 @@ import axios from "axios";
 import { Nav } from "./nav";
 import { useQuery } from "react-query";
 import Link from "next/link";
+import baseUrl from "../../baseUrl/base";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const isAuthenticated = async () => {
     const response = await axios.get(
-      "https://bookmarky-backend-production.up.railway.app/auth/isAuthenticated",
+      `${baseUrl}/auth/isAuthenticated`,
       {
         withCredentials: true,
       }

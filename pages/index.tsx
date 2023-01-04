@@ -5,9 +5,10 @@ import { ReactElement } from "react";
 import { Layout } from "../components/layouts/layout";
 import Link from "next/link";
 import BookmarkCard from "../components/generalComponents/bookmarkCard";
+import baseUrl from "../baseUrl/base";
 
 const fetchBookmarks = async () => {
-  const response = await axios.get("https://bookmarky-backend-production.up.railway.app/bookmarks", {
+  const response = await axios.get(`${baseUrl}/bookmarks`, {
     withCredentials: true,
   });
   return response.data;

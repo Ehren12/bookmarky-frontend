@@ -7,6 +7,7 @@ import { Toaster, toast } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 import {LoginDto} from '../../types/authtypes/'
 import { useRouter } from "next/router";
+import baseUrl from "../../baseUrl/base";
 
 
 export default function Login() {
@@ -16,7 +17,7 @@ export default function Login() {
 
   const mutation: any = useMutation((newUser) => {
     return axios
-      .post("https://bookmarky-backend-production.up.railway.app/auth/login", newUser, {
+      .post(`${baseUrl}/auth/login`, newUser, {
         withCredentials: true,
       })
       .then((res) => {

@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 import { CreateBookmarkDto } from "../../types/bookmarks/dto";
 import { Layout } from "../../components/layouts/layout";
 import { useRouter } from "next/router";
+import baseUrl from "../../baseUrl/base";
 
 // interface IFormInput {
 //   email: string;
@@ -24,7 +25,7 @@ const NewBookmark = () => {
 
   const mutation: any = useMutation((newBookmark) => {
     return axios
-      .post("https://bookmarky-backend-production.up.railway.app/bookmarks/create", newBookmark, {
+      .post(`${baseUrl}/bookmarks/create`, newBookmark, {
         withCredentials: true,
       })
       .then((res) => {

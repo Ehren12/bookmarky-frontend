@@ -25,7 +25,7 @@ function EditBookmark() {
   const { id } = router.query;
   const mutation: any = useMutation((newBookmark) => {
     return axios
-      .patch(`${baseUrl}/bookmarks/edit/${id}`, newBookmark, {
+      .patch(`https://bookmarky-backend.onrender.com/bookmarks/edit/${id}`, newBookmark, {
         withCredentials: true,
       })
       .then((res) => {
@@ -39,7 +39,7 @@ function EditBookmark() {
   });
 
   const fetchData = async () => {
-    const response = await axios.get(`${baseUrl}/bookmarks/${id}`, {
+    const response = await axios.get(`https://bookmarky-backend.onrender.com/bookmarks/${id}`, {
       withCredentials: true,
     });
     return response.data;

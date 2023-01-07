@@ -24,7 +24,7 @@ export default function Signup() {
 
   const mutation: any = useMutation((newUser) => {
     return axios
-      .post(`${baseUrl}/auth/signup`, newUser, {
+      .post(`https://bookmarky-backend.onrender.com/auth/signup`, newUser, {
         withCredentials: true,
       })
       .then((res) => {

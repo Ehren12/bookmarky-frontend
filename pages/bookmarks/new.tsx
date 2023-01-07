@@ -25,7 +25,7 @@ const NewBookmark = () => {
 
   const mutation: any = useMutation((newBookmark) => {
     return axios
-      .post(`${baseUrl}/bookmarks/create`, newBookmark, {
+      .post(`https://bookmarky-backend.onrender.com/bookmarks/create`, newBookmark, {
         withCredentials: true,
       })
       .then((res) => {

@@ -10,7 +10,7 @@ const SingleBookmark = () => {
   const router = useRouter();
   const { id } = router.query;
   const fetchData = async () => {
-    const response = await axios.get(`${baseUrl}/bookmarks/${id}`, {
+    const response = await axios.get(`https://bookmarky-backend.onrender.com/bookmarks/${id}`, {
       withCredentials: true,
     });
     return response.data;
@@ -18,7 +18,7 @@ const SingleBookmark = () => {
   const { data, isLoading, error, refetch } = useQuery("bookmarkById", fetchData);
   const deleteBookmark = async () => {
     axios
-      .delete(`${baseUrl}/bookmarks/delete/${id}`, {
+      .delete(`https://bookmarky-backend.onrender.com/bookmarks/delete/${id}`, {
         withCredentials: true,
       })
       .then(() => router.push('/'))

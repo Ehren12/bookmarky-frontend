@@ -7,7 +7,7 @@ import baseUrl from "../../baseUrl/base";
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const isAuthenticated = async () => {
     const response = await axios.get(
-      `${baseUrl}/auth/isAuthenticated`,
+      `https://bookmarky-backend.onrender.com/auth/isAuthenticated`,
       {
         withCredentials: true,
       }

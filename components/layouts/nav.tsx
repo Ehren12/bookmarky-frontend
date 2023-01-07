@@ -6,7 +6,7 @@ import baseUrl from "../../baseUrl/base";
 export const Nav = () => {
   const isAuthenticated = async () => {
     const response = await axios.get(
-      `${baseUrl}/auth/isAuthenticated`,
+      `https://bookmarky-backend.onrender.com/auth/isAuthenticated`,
       {
         withCredentials: true,
       }
@@ -22,7 +22,7 @@ export const Nav = () => {
 
   const logout = async () => {
     axios
-      .get(`${baseUrl}/auth/logout`, {
+      .get(`https://bookmarky-backend.onrender.com/auth/logout`, {
         withCredentials: true,
       })
       .then(() => refetch())

@@ -8,7 +8,7 @@ import BookmarkCard from "../components/generalComponents/bookmarkCard";
 import baseUrl from "../baseUrl/base";
 
 const fetchBookmarks = async () => {
-  const response = await axios.get(`${baseUrl}/bookmarks`, {
+  const response = await axios.get(`https://bookmarky-backend.onrender.com/bookmarks`, {
     withCredentials: true,
   });
   return response.data;
